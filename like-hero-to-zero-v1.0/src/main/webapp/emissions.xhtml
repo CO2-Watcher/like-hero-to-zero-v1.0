@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>CO₂-Daten anzeigen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&amp;display=swap" rel="stylesheet" />
+    <style>
+        .modern-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 1.8em;
+        }
+    </style>
+</h:head>
+<h:body>
+    <h2 class="modern-title">CO₂-Daten für #{publicViewBean.selectedCountry}</h2>
+
+    <p:dataTable value="#{publicViewBean.latestEmissionsByCountry}" var="e" rows="50" paginator="true">
+        <p:column headerText="Jahr">
+            <h:outputText value="#{e.year}" />
+        </p:column>
+        <p:column headerText="Bevölkerung (Mio)">
+            <h:outputText value="#{e.population / 1000000}">
+                <f:convertNumber pattern="###0.00" />
+            </h:outputText>
+        </p:column>
+        <p:column headerText="CO₂ Gesamt (kt)">
+            <h:outputText value="#{e.emissionKt}">
+                <f:convertNumber pattern="###0.00" />
+            </h:outputText>
+        </p:column>
+        <p:column headerText="CO₂ pro Kopf (t)">
+            <h:outputText value="#{e.co2PerCapita}">
+                <f:convertNumber pattern="###0.00" />
+            </h:outputText>
+        </p:column>
+    </p:dataTable>
+</h:body>
+</html>

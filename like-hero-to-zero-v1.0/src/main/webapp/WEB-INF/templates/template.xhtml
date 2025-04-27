@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+<head>
+    <meta charset="UTF-8" />
+    <title>LikeHeroToZero</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.sidenav');
+            M.Sidenav.init(elems);
+        });
+    </script>
+</head>
+<body>
+
+    <ui:include src="/WEB-INF/includes/header.xhtml" />
+
+    <div class="container" style="min-height: 80vh;">
+        <ui:insert name="content" />
+    </div>
+
+    <ui:include src="/WEB-INF/includes/footer.xhtml" />
+
+</body>
+</html>
